@@ -27,8 +27,8 @@ class CustomersBackendResourceRoutePlugin extends AbstractPlugin implements Reso
      */
     public function configure(ResourceRouteCollectionInterface $resourceRouteCollection): ResourceRouteCollectionInterface
     {
-        return $resourceRouteCollection->addGet('get', false)
-            ->addPatch('patch', false);
+        return $resourceRouteCollection->addGet('get')
+            ->addPatch('patch');
     }
 
     /**
