@@ -30,30 +30,10 @@ class CustomersBackendRestApiToCustomerFacadeBridge implements CustomersBackendR
     /**
      * @param \Generated\Shared\Transfer\CustomerCriteriaTransfer $customerCriteriaTransfer
      *
-     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
-     */
-    public function getCustomerByCriteria(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerResponseTransfer
-    {
-        return $this->customerFacade->getCustomerByCriteria($customerCriteriaTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
-     */
-    public function updateCustomer(CustomerTransfer $customerTransfer)
-    {
-        return $this->customerFacade->updateCustomer($customerTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\CustomerCollectionTransfer $customerCollectionTransfer
-     *
      * @return \Generated\Shared\Transfer\CustomerCollectionTransfer
      */
-    public function getCustomerCollection(CustomerCollectionTransfer $customerCollectionTransfer): CustomerCollectionTransfer
+    public function getCustomerCollection(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerCollectionTransfer
     {
-        return $this->customerFacade->getCustomerCollection($customerCollectionTransfer);
+        return $this->customerFacade->getCustomerCollection($customerCriteriaTransfer);
     }
 }

@@ -11,4 +11,16 @@
       <property name="anonymizedAt" type="string" />
       <property name="phone" type="string" />
   </transfer>
+
+
+    <transfer name="CustomerCriteria">
+        <property name="customerConditions" type="CustomerConditions" />
+        <property name="sortCollection" type="SortCollection"/>
+        <property name="pagination" type="Pagination" />
+    </transfer>
+
+    <transfer name="CustomerConditions"></transfer>
+    <transfer name="SortCollection"></transfer>
+    <transfer name="Pagination"></transfer>
+
 </transfers>

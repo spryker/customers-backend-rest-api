@@ -40,26 +40,10 @@ class CustomersBackendRestApiFactory extends AbstractBackendFactory
     }
 
     /**
-     * @return \Spryker\Glue\CustomersBackendRestApi\Processor\Reader\CustomerReaderInterface
-     */
-    public function createCustomerReader(): CustomerReaderInterface
-    {
-        return new CustomerReader($this->getCustomerFacade(), $this->createCustomersBackendRestResponseBuilder(), $this->createCustomersBackendMapper());
-    }
-
-    /**
      * @return \Spryker\Glue\CustomersBackendRestApi\Dependency\Facade\CustomersBackendRestApiToCustomerFacadeInterface
      */
     public function getCustomerFacade(): CustomersBackendRestApiToCustomerFacadeInterface
     {
         return $this->getProvidedDependency(CustomersBackendRestApiDependencyProvider::FACADE_CUSTOMER);
-    }
-
-    /**
-     * @return \Spryker\Glue\CustomersBackendRestApi\Processor\Updater\CustomerUpdaterInterface
-     */
-    public function createCustomerUpdater(): CustomerUpdaterInterface
-    {
-        return new CustomerUpdater($this->getCustomerFacade(), $this->createCustomersBackendRestResponseBuilder(), $this->createCustomersBackendMapper());
     }
 }

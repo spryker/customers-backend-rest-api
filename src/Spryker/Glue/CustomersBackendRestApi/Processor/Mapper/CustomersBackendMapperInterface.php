@@ -24,23 +24,4 @@ interface CustomersBackendMapperInterface
         CustomerTransfer $customerTransfer,
         RestCustomersBackendAttributesTransfer $restCustomersBackendAttributesTransfer
     ): RestCustomersBackendAttributesTransfer;
-
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerTransfer
-     */
-    public function mapRestRequestToCustomerTransfer(RestRequestInterface $restRequest, CustomerTransfer $customerTransfer): CustomerTransfer;
-
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\CustomerCollectionTransfer $customerCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerCollectionTransfer
-     */
-    public function mapRestRequestToCustomerCollectionTransfer(
-        RestRequestInterface $restRequest,
-        CustomerCollectionTransfer $customerCollectionTransfer
-    ): CustomerCollectionTransfer;
 }
