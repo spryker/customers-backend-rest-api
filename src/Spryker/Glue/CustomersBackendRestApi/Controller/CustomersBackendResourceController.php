@@ -8,7 +8,7 @@
 namespace Spryker\Glue\CustomersBackendRestApi\Controller;
 
 use Generated\Shared\Transfer\CustomerCriteriaTransfer;
-use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
+use Generated\Shared\Transfer\RestCustomersBackendAttributesTransfer;
 use Spryker\Glue\Kernel\Backend\Controller\AbstractBackendController;
 
 /**
@@ -17,14 +17,22 @@ use Spryker\Glue\Kernel\Backend\Controller\AbstractBackendController;
 class CustomersBackendResourceController extends AbstractBackendController
 {
     /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
+     * @Glue({
+     *     "type": "customers",
+     *     "idAttribute": "idCustomer"
+     * })
      *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
+     * @param \Generated\Shared\Transfer\CustomerCriteriaTransfer $customerCriteriaTransfer
+     *
+     * @return \Generated\Shared\Transfer\RestCustomersBackendAttributesTransfer[]
      */
-    public function getAction(CustomerCriteriaTransfer $customerCriteriaTransfer): RestResponseInterface
+    public function getAction(CustomerCriteriaTransfer $customerCriteriaTransfer): array
     {
-        return $this->getFactory()->createCustomersBackendRestResponseBuilder()->createCustomersCollectionResponse(
-            $this->getFactory()->getCustomerFacade()->getCustomerCollection($customerCriteriaTransfer)
-        );
+        $transfers = [];
+        foreach ($this->getFactory()->getCustomerFacade()->getCustomerCollection($customerCriteriaTransfer)->getCustomers() as $customer) {
+            $transfers[] = (new RestCustomersBackendAttributesTransfer())->fromArray($customer->toArray(), true);
+        }
+
+        return $transfers;
     }
 }
