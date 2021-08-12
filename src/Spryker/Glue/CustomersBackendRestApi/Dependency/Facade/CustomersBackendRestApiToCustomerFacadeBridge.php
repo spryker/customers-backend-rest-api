@@ -32,8 +32,39 @@ class CustomersBackendRestApiToCustomerFacadeBridge implements CustomersBackendR
      *
      * @return \Generated\Shared\Transfer\CustomerCollectionTransfer
      */
-    public function getCustomerCollection(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerCollectionTransfer
+    public function getApiFirstCustomerCollection(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerCollectionTransfer
     {
-        return $this->customerFacade->getCustomerCollection($customerCriteriaTransfer);
+        return $this->customerFacade->getApiFirstCustomerCollection($customerCriteriaTransfer);
+    }
+
+    /**
+     * @param string $customerReference
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
+     */
+    public function updateApiFirstCustomer(string $customerReference, CustomerTransfer $customerTransfer): CustomerResponseTransfer
+    {
+        return $this->customerFacade->updateApiFirstCustomer($customerReference, $customerTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
+     */
+    public function createApiFirstCustomer(CustomerTransfer $customerTransfer): CustomerResponseTransfer
+    {
+        return $this->customerFacade->createApiFirstCustomer($customerTransfer);
+    }
+
+    /**
+     * @param string $customerReference
+     *
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
+     */
+    public function deleteApiFirstCustomer(string $customerReference): CustomerResponseTransfer
+    {
+        return $this->customerFacade->deleteApiFirstCustomer($customerReference);
     }
 }

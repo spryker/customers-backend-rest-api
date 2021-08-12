@@ -21,5 +21,27 @@ interface CustomersBackendRestApiToCustomerFacadeInterface
      *
      * @return \Generated\Shared\Transfer\CustomerCollectionTransfer
      */
-    public function getCustomerCollection(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerCollectionTransfer;
+    public function getApiFirstCustomerCollection(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerCollectionTransfer;
+
+    /**
+     * @param string $customerReference
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
+     */
+    public function updateApiFirstCustomer(string $customerReference, CustomerTransfer $customerTransfer): CustomerResponseTransfer;
+
+    /**
+     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
+     *
+     * @return \Generated\Shared\Transfer\CustomerResponseTransfer
+     */
+    public function createApiFirstCustomer(CustomerTransfer $customerTransfer): CustomerResponseTransfer;
+
+    /**
+     * @param string $customerReference
+     *
+     * @return CustomerResponseTransfer
+     */
+    public function deleteApiFirstCustomer(string $customerReference): CustomerResponseTransfer;
 }

@@ -7,6 +7,7 @@
 
 namespace Spryker\Glue\CustomersBackendRestApi\Plugin\GlueApplication;
 
+use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\RestCustomersBackendAttributesTransfer;
 use Spryker\Glue\CustomersBackendRestApi\CustomersBackendRestApiConfig;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollectionInterface;
@@ -27,7 +28,10 @@ class CustomersBackendResourceRoutePlugin extends AbstractPlugin implements Reso
      */
     public function configure(ResourceRouteCollectionInterface $resourceRouteCollection): ResourceRouteCollectionInterface
     {
-        return $resourceRouteCollection->addGet('get', false);
+        return $resourceRouteCollection->addGet('get', false)
+            ->addPatch('patch', false)
+            ->addPost('post', false)
+            ->addDelete('delete', false);
     }
 
     /**
@@ -63,6 +67,6 @@ class CustomersBackendResourceRoutePlugin extends AbstractPlugin implements Reso
      */
     public function getResourceAttributesClassName(): string
     {
-        return RestCustomersBackendAttributesTransfer::class;
+        return CustomerTransfer::class;
     }
 }
