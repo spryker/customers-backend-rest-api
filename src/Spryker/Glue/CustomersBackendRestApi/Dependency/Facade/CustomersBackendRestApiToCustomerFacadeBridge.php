@@ -32,9 +32,9 @@ class CustomersBackendRestApiToCustomerFacadeBridge implements CustomersBackendR
      *
      * @return \Generated\Shared\Transfer\CustomerCollectionTransfer
      */
-    public function getApiFirstCustomerCollection(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerCollectionTransfer
+    public function getCustomerCollection(CustomerCriteriaTransfer $customerCriteriaTransfer): CustomerCollectionTransfer
     {
-        return $this->customerFacade->getApiFirstCustomerCollection($customerCriteriaTransfer);
+        return $this->customerFacade->getCustomerCollection($customerCriteriaTransfer);
     }
 
     /**
@@ -43,9 +43,9 @@ class CustomersBackendRestApiToCustomerFacadeBridge implements CustomersBackendR
      *
      * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
-    public function updateApiFirstCustomer(string $customerReference, CustomerTransfer $customerTransfer): CustomerResponseTransfer
+    public function updateCustomer(string $customerReference, CustomerTransfer $customerTransfer): CustomerResponseTransfer
     {
-        return $this->customerFacade->updateApiFirstCustomer($customerReference, $customerTransfer);
+        return $this->customerFacade->updateCustomer($customerReference, $customerTransfer);
     }
 
     /**
@@ -53,9 +53,9 @@ class CustomersBackendRestApiToCustomerFacadeBridge implements CustomersBackendR
      *
      * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
-    public function createApiFirstCustomer(CustomerTransfer $customerTransfer): CustomerResponseTransfer
+    public function createCustomer(CustomerTransfer $customerTransfer): CustomerResponseTransfer
     {
-        return $this->customerFacade->createApiFirstCustomer($customerTransfer);
+        return $this->customerFacade->createCustomer($customerTransfer);
     }
 
     /**
@@ -63,8 +63,8 @@ class CustomersBackendRestApiToCustomerFacadeBridge implements CustomersBackendR
      *
      * @return \Generated\Shared\Transfer\CustomerResponseTransfer
      */
-    public function deleteApiFirstCustomer(string $customerReference): CustomerResponseTransfer
+    public function deleteCustomer(string $customerReference): CustomerResponseTransfer
     {
-        return $this->customerFacade->deleteApiFirstCustomer($customerReference);
+        return $this->customerFacade->deleteCustomer($customerReference);
     }
 }
